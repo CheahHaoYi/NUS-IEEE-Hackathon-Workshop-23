@@ -1,0 +1,41 @@
+menu "Example Configuration"
+
+    config EXAMPLE_BOARD_BUTTON_GPIO
+        int "Boot Button GPIO"
+        default 0 if !IDF_TARGET_ESP32C3
+        default 9 if IDF_TARGET_ESP32C3
+        help
+            GPIO number on which the "Boot" button is connected. This is generally used
+            by the application for custom operations like toggling states, resetting to defaults, etc.
+
+    config EXAMPLE_SENSOR_POWER_GPIO
+        int "Sensor GPIO"
+        default 40 
+        help
+            The GPIO Pin to power the moisture sensor
+
+    config EXAMPLE_APP_CONNECTION
+        bool "App Connection enabled"
+        default n
+        help
+            To signal that the app connection is enabled and allow resource allocation for RTOS tasks
+
+    config EXAMPLE_RELAY_GPIO
+        int "Relay GPIO"
+        default 10
+        help 
+            The GPIO Pin to control the relay
+            
+    config EXAMPLE_ENABLE_PUMP
+        bool "Enable Pump"
+        default n
+        help
+            To enable the initialization and resource allocation for the water pump.
+
+    config EXAMPLE_ENABLE_SENSOR
+        bool "Enable Sensor"
+        default n
+        help
+            To enable the initialization and resource allocation for the sensor.
+
+endmenu

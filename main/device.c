@@ -3,9 +3,7 @@
 #include <stdlib.h>
 
 // RTOS items
-#ifdef CONFIG_EXAMPLE_APP_CONNECTION
 static TimerHandle_t sensor_timer;
-#endif
 extern QueueHandle_t event_queue;
 
 static bool current_led_state = false;
